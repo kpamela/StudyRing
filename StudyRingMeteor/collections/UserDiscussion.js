@@ -1,7 +1,7 @@
 UserDiscussion = new Mongo.Collection('userdiscussion');
 
-
-UserDiscussion.allow({                                                          //Checks if the user is still logged in
+//checks if the user is still logged in
+UserDiscussion.allow({
     insert: function(userId, doc){
         return !!userId;
     },
@@ -10,7 +10,8 @@ UserDiscussion.allow({                                                          
     }
 });
 
-UserDiscussionSchema = new SimpleSchema({                                       //schema for the userdiscussion
+//schema for the userdiscussion
+UserDiscussionSchema = new SimpleSchema({
 
    comment: {
       type: String,
@@ -24,7 +25,8 @@ UserDiscussionSchema = new SimpleSchema({                                       
        type: String,
        label: "Created By",
        autoValue: function () {
-           if (this.isInsert && (!this.isSet || this.value.length === 0)) {     //Sets value when its insert, not update
+           //This makes sure to only set a value when it is an insert function, not an update
+           if (this.isInsert && (!this.isSet || this.value.length === 0)) {
                return this.userId
            }
        },
@@ -36,6 +38,7 @@ UserDiscussionSchema = new SimpleSchema({                                       
        type: Date,
        label: "Created At",
        autoValue: function() {
+           //This makes sure to only set a value when it is an insert function, not an update
            if (this.isInsert && (!this.isSet || this.value.length === 0)) {
                return new Date()
            }
