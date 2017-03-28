@@ -1,4 +1,5 @@
 import './MainForum.html';
+//Meteor.subscribe('userdiscussion');
 
 Template.MainForum.onCreated(function(){
     var self = this;
@@ -9,13 +10,16 @@ Template.MainForum.onCreated(function(){
 
 Template.MainForum.helpers({
 
-    updateCommentId: function() {                                               //This returns the id of the selected comment
+    //This returns the id of the selected comment
+    updateCommentId: function() {
         return this._id;
     },
-    editComment: function() {                                                   //This checks if the comment is in edit mode
+    //This checks if the comment is in edit mode
+    editComment: function() {
         return Template.instance().editMode.get();
     },
-    userId: function () {                                                       //This returns the id of the user who created the comment
+    //This returns the id of the user who created the comment
+    userId: function () {
         return this.createdBy;
     },
     comments: ()=> {

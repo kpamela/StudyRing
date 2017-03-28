@@ -1,11 +1,3 @@
-<!--
-________________________________________________________________________________
-                                ****MainForum****
-Description: This appears under the Forum tab
-Subtemplates: RingDiscussion
-Functions: Show a list of all the forum discussions relevant to the user
-________________________________________________________________________________
--->
 <template name="MainForum">
   <body>
       <div class="jumbotron">
@@ -16,22 +8,14 @@ ________________________________________________________________________________
       </div>
       <div>
         {{#each comments}}
-          {{> MyAvatarComment}}
+          {{> myAvatarComment}}
         {{/each}}
       </div>
-        {{> quickForm collection="userdiscussion" id="insertComment" type="insert" class="newCommentForm"}}
+        {{> quickForm collection="UserDiscussion" id="insertComment" type="insert" class="newCommentForm"}}
   </body>
 </template>
-<!--
-________________________________________________________________________________
-                                ****MyAvatarComments****
-Description: Rings is the template that appears under the "My Rings" tab.
-Subtemplates: RingInfo, NewRing
-Functions: Show a list of all the rings the user has created, and give the option
-          of creating a new ring.
-________________________________________________________________________________
--->
-<template name="MyAvatarComment">
+
+<template name="myAvatarComment">
   <div class="row">
     <div class="col-sm-9">
       <div class="user">
@@ -42,12 +26,12 @@ ________________________________________________________________________________
            {{/with}}
         </div>
       </div>
-        {{> MyComment}}
+        {{> myComment}}
     </div>
   </div>
 </template>
 
-<template name = "MyComment">
+<template name = "myComment">
   <div class="col-sm-9">
     <div class="well">
       <h4>{{comment}}</h4>
