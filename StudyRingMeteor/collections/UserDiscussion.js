@@ -1,4 +1,4 @@
-UserDiscussion = new Mongo.Collection('userdiscussion');
+export const UserDiscussion = new Mongo.Collection('userdiscussion');
 
 
 UserDiscussion.allow({                                                          //Checks if the user is still logged in

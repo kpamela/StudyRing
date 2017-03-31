@@ -1,4 +1,6 @@
 import './MainForum.html';
+import { UserDiscussion } from "../../collections/UserDiscussion.js"
+
 
 Template.MainForum.onCreated(function(){
     var self = this;
