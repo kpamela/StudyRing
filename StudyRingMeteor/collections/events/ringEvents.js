@@ -1,6 +1,6 @@
 import { Rings } from "../../collections/rings/rings.js"
 
-Events = new Mongo.Collection('events');
+Events = new Mongo.Collection('ringEvents');
 
 Events.allow({
     insert: function(userId, doc){
